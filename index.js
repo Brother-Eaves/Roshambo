@@ -4,18 +4,20 @@
 const getComputerChoice = () => {
    let result = Math.floor(Math.random() * 3) + 1;
     if (result === 1) {
-        console.log('Rock')
+        console.log('ROCK')
     } else if (result === 2) {
-        console.log('Paper')
+        console.log('PAPER')
     } else if (result === 3) 
-        console.log('Scissors')
+        console.log('SCISSORS')
 }
 
-console.log(getComputerChoice())
-
-//Function Randomize a number between 1 and three.
-// If 1 = rock, else if 2 = Paper else scissors.
-//Return result
 //Initialize Human Choice
-//Function prompt choice
+const getHumanChoice = () => {
+    let answer = prompt('Paper, Rock or Scissors?')
+    return answer.toUpperCase()
+}
+
+
+//Score
+
 //Evaluate results: Rock beats Scissors/Paper beats Rock/Scissors beat paper. 
