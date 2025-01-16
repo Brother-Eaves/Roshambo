@@ -66,10 +66,14 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
-const human = getHumanChoice()
-const computer = getComputerChoice()
 
-function playGame() {
+
+
+
+
+
+
+/*function playGame() {
   
     
    
@@ -88,6 +92,6 @@ function playGame() {
     }
 }
 
-playGame()
+playGame()*/
 
 //Evaluate results: Rock beats Scissors/Paper beats Rock/Scissors beat paper. 
