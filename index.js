@@ -1,21 +1,31 @@
 // TOP Paper, Rock, Scissors
 // Initialize Computer Choice
 
+const output = document.querySelector('.output');
+const hScore= document.querySelector('.human-score');
+const cScore = document.querySelector('.computer-score');
+const rock = document.querySelector('.rock-btn');
+const paper = document.querySelector('.paper-btn');
+const scissors = document.querySelector('.scissors-btn');
+const gBoard = document.querySelector('.game-board');
+
 const getComputerChoice = () => {
    let result = Math.floor(Math.random() * 3) + 1;
     if (result === 1) {
         return 'ROCK'
     } else if (result === 2) {
         return 'PAPER'
-    } else if (result === 3) 
+    } else {
         return 'SCISSORS'
+    }
+        
 }
 
 //Initialize Human Choice
-const getHumanChoice = () => {
-    let answer = prompt('Paper, Rock or Scissors?')
-   return answer.toUpperCase()
-}
+//const getHumanChoice = () => {
+    //let answer = prompt('Paper, Rock or Scissors?')
+   //return answer.toUpperCase()
+//}
 
 
 //Score
@@ -26,52 +36,86 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
     
     if (humanChoice === computerChoice) {
-        console.log('It is a Tie!')
-        console.log(`Human: ${humanScore} Computer: ${computerScore}`)
-    }
-    
-    if (humanChoice === 'ROCK') {
+        output.textContent = 'It is a Tie!'
+        //console.log(`Human: ${humanScore}` + ` Computer: ${computerScore}`)
+    } else if (humanChoice === 'ROCK') {
         if (computerChoice === 'SCISSORS') {
-            ++humanScore
-            console.log('You Won! Rock beats Scissors')
-            console.log(`Human: ${humanScore} Computer: ${computerScore}`)
+            //++humanScore
+            humanScore += 1
+            output.textContent = 'You Won! Rock beats Scissors'
+            //console.log(`Human: ${humanScore}` + ` Computer: ${computerScore}`)
+            hScore.textContent = humanScore
+            cScore.textContent = computerScore
         } else if (computerChoice === 'PAPER') {
             ++computerScore
-            console.log('You lost! Paper covers Rock!')
-            console.log(`Human: ${humanScore} Computer: ${computerScore}`)
+            output.textContent = 'You lost! Paper covers Rock!'
+            //console.log(`Human: ${humanScore}` + ` Computer: ${computerScore}`)
+            hScore.textContent = humanScore
+            cScore.textContent = computerScore
         }
-    }
-
-    if (humanChoice === 'PAPER') {
+    } else if (humanChoice === 'PAPER') {
         if (computerChoice === 'ROCK') {
             ++humanScore
-            console.log('You Won, Paper covers Rock')
-            console.log(`Human: ${humanScore} Computer: ${computerScore}`)
+            output.textContent = 'You Won, Paper covers Rock'
+            //console.log(`Human: ${humanScore}` + ` Computer: ${computerScore}`)
+            hScore.textContent = humanScore
+            cScore.textContent = computerScore
         } else if (computerChoice === 'SCISSORS') {
             ++computerScore
-            console.log('You lost! Scissors cut Paper')
-            console.log(`Human: ${humanScore} Computer: ${computerScore}`)
+            output.textContent = 'You lost! Scissors cut Paper'
+            //console.log(`Human: ${humanScore}` + ` Computer: ${computerScore}`)
+            hScore.textContent = humanScore
+            cScore.textContent = computerScore
+            
         } 
-    }
-
-    if (humanChoice === 'SCISSORS') {
+    } else if (humanChoice === 'SCISSORS') {
         if (computerChoice === 'PAPER') {
             ++humanScore
-            console.log('You Won! Scissors cut Paper!')
-            console.log(`Human: ${humanScore} Computer: ${computerScore}`)
+            output.textContent = 'You Won! Scissors cut Paper!'
+            //console.log(`Human: ${humanScore}` + ` Computer: ${computerScore}`)
+            hScore.textContent = humanScore
+            cScore.textContent = computerScore
+           
         } else if (computerChoice === 'ROCK') {
             ++computerScore
-            console.log('You lost! Rock beats Scissors!')
-            console.log(`Human: ${humanScore} Computer: ${computerScore}`)
+            output.textContent = 'You lost! Rock beats Scissors!'
+            //console.log(`Human: ${humanScore}` + ` Computer: ${computerScore}`)
+            hScore.textContent = humanScore
+            cScore.textContent = computerScore
+            
         }
     }
 }
+//const human = getHumanChoice()
+const computer = getComputerChoice()
 
 
+rock.addEventListener('click', ()=>{
+    playRound('ROCK', computer)
+});
 
+paper.addEventListener('click', ()=>{
+    playRound('PAPER', computer)
+});
 
+scissors.addEventListener('click', ()=>{
+    playRound('SCISSORS', computer)
+})
 
+//Reset Button
 
+const reset = document.createElement('button');
+reset.classList.add('reset');
+reset.textContent = 'Reset'
+gBoard.appendChild(reset);
+
+const resetGame = function() {
+    location.reload()
+}
+
+reset.addEventListener('click', ()=>{
+    resetGame()
+})
 
 /*function playGame() {
   

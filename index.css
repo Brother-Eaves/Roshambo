@@ -1,0 +1,21 @@
+.score {
+    border: 2px solid black;
+    height: 10%;
+    padding: 10px;
+    width: 30%;
+}
+
+.reset {
+    background-color: red;
+    color: white;
+    width: 10%;
+    height: 10%;
+}
+
+.output {
+
+padding: 10px;
+border: 2px solid black;
+width: 50%;
+height: auto;
+}
