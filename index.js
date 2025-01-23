@@ -40,18 +40,17 @@ resetBtn.addEventListener('click', ()=>{
 function playRound(playerChoice) {
     const computer = getComputerChoice()
 
-    if (rounds === 5) {
+    if (humanScore === 5) {
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
-
-        if (humanScore === computerScore) {
-            output.textContent = 'It is a Draw! Try again?'
-        } else if (humanScore > computerScore) {
-            output.textContent = 'YOU WIN'
-        } else {
-            output.textContent = 'YOU LOSE!'
-        }
+        output.textContent = 'YOU WIN!'
+        
+    } else if (computerScore === 5) {
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+        output.textContent = 'COMPUTER WINS! TRY AGAIN?'
     } else {
         if (playerChoice === computer) {
             output.textContent = 'It is a Draw! Try again!';
